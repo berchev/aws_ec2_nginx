@@ -23,7 +23,7 @@ Note that instructions below are tested on ubuntu only.
 git clone https://github.com/berchev/aws_ec2_nginx.git
 ```
 
-- Change to downloaded **aws_ec2** directory: `cd aws_ec2`
+- Change to downloaded **aws_ec2_nginx** directory: `cd aws_ec2_nginx`
 
 - You need to export your **aws_access_key** and **aws_secret_access_key** as an env variable in linux:
   ```

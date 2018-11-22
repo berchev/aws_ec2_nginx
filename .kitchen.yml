@@ -1,0 +1,26 @@
+---
+driver:
+  name: ec2
+  region: us-west-2
+  availability_zone: us-west-2c
+  
+  
+
+transport:
+  ssh_key: "/home/gberchev/ec2_key_pair/gberchev_key_pair.pem"
+  username: ["ubuntu"]
+
+provisioner:
+  name: shell
+
+platforms:
+  - name: ec2_xenial_packer_1542810862
+    driver:
+      image_id: ami-0470bba1269fef9f5
+      instance_type: t2.micro
+
+verifier:
+  name: inspec
+  
+suites:
+  - name: default

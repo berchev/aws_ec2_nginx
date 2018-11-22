@@ -1,8 +1,9 @@
 # aws_ec2_nginx
 
 ## Description:
-Downloading the content of this repository gives you possibility to create your own EC2_nginx image(EC2 with nginx installed) with packer tool.
-Note that instructions below are tested on ubuntu only.
+Downloading the content of this repository gives you possibility to create your own EC2_nginx image(EC2 with nginx installed) with packer tool and test it with Kitchen tool.
+
+> Note that instructions below are tested on ubuntu only.
 
 ## Requierments:
 - You need packer tool installed on your machine.
@@ -82,6 +83,27 @@ That's why if you change the **region** you may need to change the **source_ami*
 - Type: `bundle exec kitchen destroy` in order to destroy the created kitchen environment
 - Type: `bundle exec kitchen test` in order to do steps from 3 to 5 in one command
 
+### Sample output from Kitchen verify
+```
+Target:  ssh://["ubuntu"]@ec2-34-217-124-148.us-west-2.compute.amazonaws.com:22
 
+  System Package nginx
+     ✔  should be installed
+  Nginx Environment
+     ✔  version should eq "1.10.3"
+  System Package nginx
+     ✔  should be installed
+  Service nginx
+     ✔  should be running
+     ✔  should be enabled
+  File /var/www/html
+     ✔  should exist
+  http GET on http://localhost
+     ✔  status should cmp == 200
+     ✔  body should match "Welcome to nginx!"
+
+Test Summary: 8 successful, 0 failures, 0 skipped
+
+```
 ## TODO
 
